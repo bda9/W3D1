@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="friendsList">
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular Outline</title>
+  <link rel="stylesheet" href="master.css" media="screen" title="no title" charset="utf-8">
+  </script>
+</head>
+
+<body>
+  <main ng-controller="mainCtrl">
+   <input type="text" ng-model="tagName">
+    <input type="text" ng-model="tagStatus">
+    <button type="button" class="resultsButton" ng-click="addName()">Submit</button>
+
+    <h1>My Pals</h1>
+    <div ng-repeat="friend in friends">
+      <p> {{friend.name.toUpperCase()}} </p>
+      <p> {{friend.status}} </p>
+    </div>
+
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="main.js"></script>
+  <script src="mainCtrl.js"></script>
+</body>
+
+</html>
