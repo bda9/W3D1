@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="friendsList">
+
+<head>
+  <meta charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Signika+Negative' rel='stylesheet' type='text/css'>
+  <title>Angular-Friends</title>
+  <link rel="stylesheet" href="master.css" media="screen" title="no title" charset="utf-8">
+  </script>
+</head>
+
+<body>
+  <main ng-controller="mainCtrl">
+    <form class="form-horizontal" name="registrForm" role="form">
+      Search by Name:<input ng-model="query" type="text"/>
+      Search by Location:<input ng-model="query" type="text"/>
+    </form>
+    <h1>My Pals</h1>
+<table>
+  <tr>
+    <th><a href="#" ng-click="sortField ='name'; reverse = !reverse">Name</a></th>
+    <th>Picture</th>
+    <th><a href="#" ng-click="sortField ='current_location.state'; reverse = !reverse">State</a></th>
+    <th><a href="#" ng-click="sortField ='current_location.country'; reverse = !reverse">Country</a></th>
+    <th>Zip</th>
+    <th><a href="#" ng-click="sortField ='current_location.latitude'; reverse = !reverse">Latitude</a></th>
+    <th><a href="#" ng-click="sortField ='current_location.longitude'; reverse = !reverse">Longitude</a></th>
+    <th>Location ID</th>
+    <th>Location</th>
+    <th>Message</th>
+    <th>Message Time</th>
+    <th>Status ID</th>
+    <th>Comments</th>
+    <th><a href="#" ng-click="sortField ='friend_count'; reverse = !reverse">Friend Count</a></th>
+    <th><a href="#" ng-click="sortField ='$$hashKey'; reverse = !reverse">hashKey</a></th>
+  </tr>
+  <tr ng-repeat="friend in friends | filter:query | orderBy:sortField:reverse">
+    <td>{{friend.name.toUpperCase()}}</td>
+    <td><img src="{{friend.pic_square}}" alt="friendpicture" /></td>
+    <td>{{friend.current_location.state}}</td>
+    <td>{{friend.current_location.country}}</td>
+    <td>{{friend.current_location.zip}}</td>
+    <td>{{friend.current_location.latitude}}</td>
+    <td>{{friend.current_location.longitude}}</td>
+    <td>{{friend.current_location.id}}</td>
+    <td>{{friend.current_location.name}}</td>
+    <td>{{friend.status.message}}</td>
+    <td>{{friend.status.time}}</td>
+    <td>{{friend.status.status_id}}</td>
+    <td>{{friend.status.comment_count}}</td>
+    <td>{{friend.friend_count}}</td>
+    <td>{{friend.$$hashKey}}</td>
+  </tr>
+</table>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="main.js"></script>
+  <script src="mainCtrl.js"></script>
+</body>
+
+</html>
